@@ -17,9 +17,6 @@
     "paths": {
       "@fronthouse/testhelp": [
         "libs/testhelp/src/index.ts"
-      ],
-      "@fronthouse/testhelp/*": [
-        "libs/testhelp/src/*"
       ]
     }
   },
