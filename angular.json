@@ -117,6 +117,47 @@
           }
         }
       }
+    },
+    "testhelp": {
+      "projectType": "library",
+      "root": "libs/testhelp",
+      "sourceRoot": "libs/testhelp/src",
+      "prefix": "ng-tools",
+      "architect": {
+        "build": {
+          "builder": "@nrwl/angular:package",
+          "outputs": ["dist/libs/testhelp"],
+          "options": {
+            "project": "libs/testhelp/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "libs/testhelp/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "libs/testhelp/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/testhelp"],
+          "options": {
+            "jestConfig": "libs/testhelp/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/testhelp/src/**/*.ts",
+              "libs/testhelp/src/**/*.html"
+            ]
+          }
+        }
+      }
     }
   },
   "cli": {
