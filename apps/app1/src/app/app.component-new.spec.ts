@@ -1,16 +1,16 @@
 import { AppComponent } from './app.component';
 import {
-  configureTestSuite,
   detectChanges,
   qn,
   ComponentFixture,
-  elmText
+  elmText,
+  configureTestingModule
 } from '@fronthouse/testhelp';
 import { AppModule } from './app.module';
 
 describe('AppComponent', () => {
   let fixture: ComponentFixture<AppComponent>;
-  configureTestSuite(AppModule, AppComponent).subscribe((f) => (fixture = f));
+  configureTestingModule(AppComponent, AppModule).subscribe((f) => (fixture = f));
 
   it('should create the app', () => {
     const app = fixture.componentInstance;

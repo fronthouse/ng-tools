@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { Subject } from 'rxjs';
-import { DebugElement, LOCALE_ID } from '@angular/core';
+import { DebugElement, LOCALE_ID, Type } from '@angular/core';
 import {
   TestBed,
   ComponentFixture,
@@ -13,6 +13,8 @@ import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { By } from '@angular/platform-browser';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { clearDate, mockDateClass, setDate } from './date';
+import { ActivatedRoute, provideRoutes, Routes } from '@angular/router';
+import { ActivatedRouteStub } from './activated-route-stub';
 
 export { advanceTo, clearDate, tick } from './date';
 export {
@@ -57,7 +59,6 @@ export function setFakeDate(date: Date) {
       // require('perf_hooks').performance.now = function() { return dateClass.now(); };
     }
   }
-
   setDate(date);
 }
 
@@ -136,9 +137,11 @@ export function detectChanges() {
 /**
  * Creates a module and a component fixture for you
  */
-export const configureTestSuite = (
+export const configureTestingModule = (
+  componentClass: Type<any>,
   module?: TestModuleMetadata | any,
-  componentClass?: any
+  routes?: Routes,
+  routeParams?: any
 ) => {
   const testBedApi: any = getTestBed();
   const originReset = TestBed.resetTestingModule;
@@ -165,6 +168,19 @@ export const configureTestSuite = (
         } else {
           c.imports && c.imports.push(module);
         }
+
+        if (routes) {
+          c.providers.push(provideRoutes(routes));
+        } else {
+          c.imports.push(RouterTestingModule);
+        }
+        if (routeParams) {
+          module.providers.push({
+            provide: ActivatedRoute,
+            useValue: ActivatedRouteStub.create(routeParams),
+          });
+        }
+
         TestBed.configureTestingModule(c).compileComponents();
       })
     );
@@ -293,6 +309,11 @@ export function elmText(elm?: any) {
   } else {
     return '';
   }
+}
+
+/** clones an object or array */
+export function clone(obj: any) {
+  return JSON.parse(JSON.stringify(obj));
 }
 
 function cleanStylesFromDOM(): void {
