@@ -15,9 +15,7 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@fronthouse/testhelp": [
-        "libs/testhelp/src/index.ts"
-      ]
+      "@fronthouse/testhelp": ["libs/testhelp/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]
