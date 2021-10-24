@@ -1,6 +1,12 @@
 {
   "name": "@fronthouse/testhelp",
   "version": "0.0.1",
+  "description": "Helpers to speed up and write cleaner tests with Angular (Jest or Karma)",
+  "author": {
+    "name": "Jørn Are Hatlelid",
+    "email": "jornare@fronthouse.no",
+    "url": "https://github.com/jornare"
+  },
   "peerDependencies": {
     "@angular/animations": ">=8",
     "@angular/common": ">=8",
@@ -10,5 +16,21 @@
   },
   "dependencies": {
     "tslib": "^2.3.0"
+  },
+  "keywords": [
+    "angular",
+    "typescript",
+    "jest",
+    "karma",
+    "testing"
+  ],
+  "license": "MIT",
+  "homepage": "https://fronthouse.no",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/fronthouse/testhelpers"
+  },
+  "bugs": {
+    "url": "https://github.com/fronthouse/testhelpers/issues"
   }
 }

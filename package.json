@@ -7,6 +7,8 @@
     "postinstall": "node ./decorate-angular-cli.js && ngcc --properties es2015 browser module main",
     "start": "nx serve",
     "build": "nx build",
+    "testhelp:build": "nx build testhelp --configuration production",
+    "testhelp:publish": "npm run testhelp:build && cd dist/libs/testhelp && npm publish --access public",
     "test": "nx test",
     "lint": "nx workspace-lint && nx lint",
     "update": "nx migrate latest"

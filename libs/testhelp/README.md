@@ -1,6 +1,6 @@
 # @fronthouse/TestHelp
 
-This library contains helper functions for speeding up your development with Karma and/or Jasmine test runners with the Angular TestBed.
+This library contains helper functions for speeding up your development with Karma and/or Jest test runners with the Angular TestBed.
 
 ## How to use
 
@@ -24,7 +24,7 @@ configureTestingModule(MyComponent, MyModule)
 afterEach(() => resetState); // this is your own reset function to reset any state in services if needed
 
 it('should create', () => {
-  expect(fixture.component).toBeTruthy();
+  expect(fixture.componentInstance).toBeTruthy();
 });
 ```
 
@@ -82,7 +82,12 @@ elmText(htmlElement?)
 Clone a pure object
 ```
 clone(jsonObject)
-``` 
+```
+
+Set date so that mock data don't have to change
+```
+setFakeDate(new Date())
+```
 # Routing
 
 With configureTestingModule, you can add more parameters to add fake routes and detect route changes.
@@ -97,7 +102,7 @@ Instead of importing functionality from a number of libraries, you can import th
 
 These are exported for you to use
 ```
-export { ComponentFixture, TestBed, async, fakeAsync, tick } from '@angular/core/testing';
+export { ComponentFixture, TestBed, waitForAsync, fakeAsync } from '@angular/core/testing';
 export { HttpTestingController, HttpClientTestingModule, TestRequest } from '@angular/common/http/testing';
 export { RouterTestingModule } from '@angular/router/testing';
 export { NoopAnimationsModule } from '@angular/platform-browser/animations';

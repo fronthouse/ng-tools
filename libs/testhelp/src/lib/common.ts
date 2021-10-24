@@ -20,7 +20,6 @@ export { advanceTo, clearDate, tick } from './date';
 export {
   ComponentFixture,
   TestBed,
-  async,
   waitForAsync,
   fakeAsync,
 } from '@angular/core/testing';
