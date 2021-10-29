@@ -28,9 +28,9 @@
   "homepage": "https://fronthouse.no",
   "repository": {
     "type": "git",
-    "url": "https://github.com/fronthouse/testhelpers"
+    "url": "https://github.com/fronthouse/ng-tools"
   },
   "bugs": {
-    "url": "https://github.com/fronthouse/testhelpers/issues"
+    "url": "https://github.com/fronthouse/ng-tools/issues"
   }
 }
