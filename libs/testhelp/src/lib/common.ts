@@ -6,7 +6,7 @@ import {
   ComponentFixture,
   TestModuleMetadata,
   waitForAsync,
-  getTestBed,
+  getTestBed
 } from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
@@ -17,16 +17,11 @@ import { ActivatedRoute, provideRoutes, Routes } from '@angular/router';
 import { ActivatedRouteStub } from './activated-route-stub';
 
 export { advanceTo, clearDate, tick } from './date';
-export {
-  ComponentFixture,
-  TestBed,
-  waitForAsync,
-  fakeAsync,
-} from '@angular/core/testing';
+export { ComponentFixture, TestBed, waitForAsync, fakeAsync } from '@angular/core/testing';
 export {
   HttpTestingController,
   HttpClientTestingModule,
-  TestRequest,
+  TestRequest
 } from '@angular/common/http/testing';
 export { RouterTestingModule } from '@angular/router/testing';
 export { NoopAnimationsModule } from '@angular/platform-browser/animations';
@@ -77,7 +72,7 @@ interface TestConfig {
 const config: TestConfig = {
   defaults: { imports: [], declarations: [], providers: [] },
   fixture: null,
-  warpSpeed: false,
+  warpSpeed: false
 };
 
 /**
@@ -99,12 +94,8 @@ export function setDefaultConf(
 ) {
   if (!conf) {
     conf = {
-      imports: [
-        NoopAnimationsModule,
-        HttpClientTestingModule,
-        RouterTestingModule,
-      ],
-      providers: [{ provide: LOCALE_ID, useValue: locale }],
+      imports: [NoopAnimationsModule, HttpClientTestingModule, RouterTestingModule],
+      providers: [{ provide: LOCALE_ID, useValue: locale }]
     };
   }
   conf.providers = [...(conf.providers || []), ...providers];
@@ -160,10 +151,7 @@ export const configureTestingModule = (
         if (module.imports) {
           c.imports = [...(c.imports || []), ...module.imports];
           c.providers = [...(c.providers || []), ...(module.providers || [])];
-          c.declarations = [
-            ...(c.declarations || []),
-            ...(module.declarations || []),
-          ];
+          c.declarations = [...(c.declarations || []), ...(module.declarations || [])];
         } else {
           c.imports && c.imports.push(module);
         }
@@ -176,7 +164,7 @@ export const configureTestingModule = (
         if (routeParams) {
           module.providers.push({
             provide: ActivatedRoute,
-            useValue: ActivatedRouteStub.create(routeParams),
+            useValue: ActivatedRouteStub.create(routeParams)
           });
         }
 
@@ -195,9 +183,7 @@ export const configureTestingModule = (
   });
   if (config.warpSpeed) {
     afterEach(() => {
-      testBedApi._activeFixtures.forEach((fixture: ComponentFixture<any>) =>
-        fixture.destroy()
-      );
+      testBedApi._activeFixtures.forEach((fixture: ComponentFixture<any>) => fixture.destroy());
       testBedApi._activeFixtures = [];
       testBedApi._instantiated = false;
       testBedApi._testModuleRef = null;
@@ -215,10 +201,7 @@ export const configureTestingModule = (
 /**
  * Shorthand for fixture.debugElement.query(By.css(selector))
  */
-export function q(
-  selector: string,
-  fixture?: ComponentFixture<any>
-): DebugElement | null {
+export function q(selector: string, fixture?: ComponentFixture<any>): DebugElement | null {
   const f = fixture || config.fixture;
   if (!f) {
     return null;
@@ -234,17 +217,12 @@ export function qT(
   withText: string,
   fixture?: ComponentFixture<any>
 ): DebugElement | null {
-  return (
-    qAll(selector, fixture).find((elm) => elmText(elm) === withText) || null
-  );
+  return qAll(selector, fixture).find((elm) => elmText(elm) === withText) || null;
 }
 /**
  * Shorthand for fixture.debugElement.queryAll(By.css(selector))
  */
-export function qAll(
-  selector: string,
-  fixture?: ComponentFixture<any>
-): DebugElement[] {
+export function qAll(selector: string, fixture?: ComponentFixture<any>): DebugElement[] {
   const f = fixture || config.fixture;
   return f ? f.debugElement.queryAll(By.css(selector)) : [];
 }
@@ -275,10 +253,7 @@ export function qnT(
 /**
  * Shorthand for fixture.debugElement.queryAll(By.css(selector)) mapped to nativeElement[]
  */
-export function qnAll(
-  selector: string,
-  fixture?: ComponentFixture<any>
-): HTMLElement[] {
+export function qnAll(selector: string, fixture?: ComponentFixture<any>): HTMLElement[] {
   return qAll(selector, fixture).map((de) => de.nativeElement);
 }
 
@@ -317,8 +292,7 @@ export function clone(obj: any) {
 
 function cleanStylesFromDOM(): void {
   const head: HTMLHeadElement = document.getElementsByTagName('head')[0];
-  const styles: HTMLCollectionOf<HTMLStyleElement> | [] =
-    head.getElementsByTagName('style');
+  const styles: HTMLCollectionOf<HTMLStyleElement> | [] = head.getElementsByTagName('style');
   for (let i = 0; i < styles.length; i++) {
     head.removeChild(styles[i]);
   }

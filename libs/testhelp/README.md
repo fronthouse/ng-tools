@@ -33,61 +33,71 @@ it('should create', () => {
 All short-hand functions have an optional parameter 'fixture', but by default the current fixture is used. Requires the use of configureTestSuite.
 
 Retrieve the first matching debug element using css selector
+
 ```
 q('.css-class')
 ```
 
 Retrieve all matching debug element using css selector
+
 ```
 qAll('.css-class')
-``` 
+```
 
 Retrieve the first matching native element using css selector
+
 ```
 qn('.css-class')
 ```
 
 Retrieve all matching native element using css selector
+
 ```
 qnAll('.css-class')
 ```
 
 Retrieve the first matching debug element using css selector, which also contains given text
+
 ```
 qT('.css-class', 'some text')
 ```
 
 Retrieve the first matching native element using css selector, which also contains given text
+
 ```
 qnT('.css-class', 'some text')
 ```
 
-
-
 Set a value to a input field and trigger proper "input" event
+
 ```
 setValue(htmlElement, 'new value')
 ```
 
 Set a value to a input field and trigger proper "input" + "blur" events
+
 ```
 setValueAndBlur(htmlElement, 'new value')
-``` 
+```
 
 Retrieve an elements inner text (all whitespace reduced to single space and trimmed)
+
 ```
 elmText(htmlElement?)
 ```
 
 Clone a pure object
+
 ```
 clone(jsonObject)
 ```
 
 Set date so that mock data don't have to change
+
 ```
 setFakeDate(new Date())
 ```
+
 # Routing
 
 With configureTestingModule, you can add more parameters to add fake routes and detect route changes.
@@ -101,6 +111,7 @@ This is to be documented further...
 Instead of importing functionality from a number of libraries, you can import the most used functionality directly from @fronthouse/test
 
 These are exported for you to use
+
 ```
 export { ComponentFixture, TestBed, waitForAsync, fakeAsync } from '@angular/core/testing';
 export { HttpTestingController, HttpClientTestingModule, TestRequest } from '@angular/common/http/testing';
@@ -129,4 +140,5 @@ NoopAnimationsModule, HttpClientTestingModule, RouterTestingModule
 Be aware: One side-effect by using this package can be that state in services may not be reset completely between each test-run. Be sure to do this manually if needed.
 
 # More information
+
 Please visit https://fronthouse.no
