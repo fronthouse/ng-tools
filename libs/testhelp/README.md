@@ -7,7 +7,7 @@ This library contains helper functions for speeding up your development with Kar
 In your test.ts file (next to your main.ts in the root of your app project), add the following:
 
 ```
-import { setDefaultConf } from '@fronthouse/test';
+import { setDefaultConf } from '@fronthouse/testhelp';
 setDefaultConf(); // on last line
 ```
 

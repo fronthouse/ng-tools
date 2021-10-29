@@ -1,6 +1,6 @@
 {
   "name": "@fronthouse/testhelp",
-  "version": "0.0.1",
+  "version": "0.0.4",
   "description": "Helpers to speed up and write cleaner tests with Angular (Jest or Karma)",
   "author": {
     "name": "Jørn Are Hatlelid",
