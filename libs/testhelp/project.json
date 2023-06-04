@@ -1,0 +1,40 @@
+{
+  "name": "testhelp",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "projectType": "library",
+  "sourceRoot": "libs/testhelp/src",
+  "prefix": "ng-tools",
+  "targets": {
+    "build": {
+      "executor": "@nx/angular:package",
+      "outputs": ["{workspaceRoot}/dist/libs/testhelp"],
+      "options": {
+        "project": "libs/testhelp/ng-package.json"
+      },
+      "configurations": {
+        "production": {
+          "tsConfig": "libs/testhelp/tsconfig.lib.prod.json"
+        },
+        "development": {
+          "tsConfig": "libs/testhelp/tsconfig.lib.json"
+        }
+      },
+      "defaultConfiguration": "production"
+    },
+    "test": {
+      "executor": "@nx/jest:jest",
+      "outputs": ["{workspaceRoot}/coverage/libs/testhelp"],
+      "options": {
+        "jestConfig": "libs/testhelp/jest.config.ts",
+        "passWithNoTests": true
+      }
+    },
+    "lint": {
+      "executor": "@nx/linter:eslint",
+      "options": {
+        "lintFilePatterns": ["libs/testhelp/src/**/*.ts", "libs/testhelp/src/**/*.html"]
+      }
+    }
+  },
+  "tags": []
+}

@@ -1,16 +1,18 @@
-module.exports = {
-  displayName: 'testhelp',
+/* eslint-disable */
+export default {
+  displayName: 'app1',
   preset: '../../jest.preset.js',
   setupFilesAfterEnv: ['<rootDir>/src/test-setup.ts'],
-  globals: {
-    'ts-jest': {
-      tsconfig: '<rootDir>/tsconfig.spec.json',
-      stringifyContentPathRegex: '\\.(html|svg)$'
-    }
-  },
-  coverageDirectory: '../../coverage/libs/testhelp',
+  globals: {},
+  coverageDirectory: '../../coverage/apps/app1',
   transform: {
-    '^.+\\.(ts|js|html)$': 'jest-preset-angular'
+    '^.+\\.(ts|js|html)$': [
+      'jest-preset-angular',
+      {
+        tsconfig: '<rootDir>/tsconfig.spec.json',
+        stringifyContentPathRegex: '\\.(html|svg)$'
+      }
+    ]
   },
   snapshotSerializers: [
     'jest-preset-angular/build/serializers/no-ng-attributes',
