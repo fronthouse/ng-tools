@@ -14,7 +14,7 @@ export class ActivatedRouteStub {
     return ar;
   }
 
-  public parent: ActivatedRouteStub;
+  public parent?: ActivatedRouteStub;
   // ActivatedRoute.paramMap is Observable
 
   private paramMapStream = new BehaviorSubject(convertToParamMap(this.testParamMap));
@@ -23,7 +23,7 @@ export class ActivatedRouteStub {
 
   // Test parameters
 
-  private _testParamMap: ParamMap;
+  private _testParamMap: ParamMap = convertToParamMap([]) ;
   get testParamMap() {
     return this._testParamMap;
   }
@@ -40,7 +40,7 @@ export class ActivatedRouteStub {
 
   // Test parameters
 
-  private _testQueryParamMap: ParamMap;
+  private _testQueryParamMap: ParamMap = convertToParamMap([]);
   get testQueryParamMap() {
     return this._testQueryParamMap;
   }

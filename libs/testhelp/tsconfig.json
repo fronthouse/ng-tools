@@ -14,12 +14,14 @@
     }
   ],
   "compilerOptions": {
-    "types": ["jest", "node"],
+    "module": "commonjs",
     "forceConsistentCasingInFileNames": true,
-    "strict": false,
+    "strict": true,
+    "noImplicitOverride": true,
+    "noImplicitAny": false,
+    "noPropertyAccessFromIndexSignature": true,
     "noImplicitReturns": true,
-    "noFallthroughCasesInSwitch": true,
-    "target": "es2020"
+    "noFallthroughCasesInSwitch": true
   },
   "angularCompilerOptions": {
     "strictInjectionParameters": true,

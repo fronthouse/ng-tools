@@ -147,7 +147,7 @@ export const configureTestingModule = (
   if (module) {
     beforeEach(
       waitForAsync(() => {
-        const c = { ...config.defaults } as TestModuleMetadata;
+        const c = { providers:[], imports:[], ...config.defaults } as TestModuleMetadata;
         if (module.imports) {
           c.imports = [...(c.imports || []), ...module.imports];
           c.providers = [...(c.providers || []), ...(module.providers || [])];
@@ -155,7 +155,8 @@ export const configureTestingModule = (
         } else {
           c.imports && c.imports.push(module);
         }
-
+        c.providers = c.providers || [];
+        c.imports = c.imports || [];
         if (routes) {
           c.providers.push(provideRoutes(routes));
         } else {

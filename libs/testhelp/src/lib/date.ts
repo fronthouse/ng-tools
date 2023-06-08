@@ -43,7 +43,7 @@ export const mockDateClass = (D: any) => {
   const mockNow = () => (now() === undefined ? D.now() : now());
 
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  function Date(...args: any[]) {
+  function Date(this:unknown, ...args: any[]) {
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const dateArgs = args.length === 0 ? [mockNow()] : args;
     const instance = new D(...dateArgs);

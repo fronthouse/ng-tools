@@ -5,7 +5,7 @@ import {
   ComponentFixture,
   elmText,
   configureTestingModule
-} from '@fronthouse/testhelp';
+} from '../../../../libs/testhelp/src';// '@fronthouse/testhelp';
 import { AppModule } from './app.module';
 
 describe('AppComponent', () => {
