@@ -8,5 +8,6 @@
   "angularCompilerOptions": {
     "compilationMode": "partial"
   },
-  "exclude": ["jest.config.ts"]
+  "include": ["src/**/*.ts"],
+  "exclude": ["jest.config.ts", "src/test-setup.ts", "src/**/*.spec.ts", "src/**/*.test.ts"]
 }

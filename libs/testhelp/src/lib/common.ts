@@ -15,7 +15,6 @@ import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { clearDate, mockDateClass, setDate } from './date';
 import { ActivatedRoute, provideRoutes, Routes } from '@angular/router';
 import { ActivatedRouteStub } from './activated-route-stub';
-
 export { advanceTo, clearDate, tick } from './date';
 export { ComponentFixture, TestBed, waitForAsync, fakeAsync } from '@angular/core/testing';
 export {
@@ -25,6 +24,7 @@ export {
 } from '@angular/common/http/testing';
 export { RouterTestingModule } from '@angular/router/testing';
 export { NoopAnimationsModule } from '@angular/platform-browser/animations';
+
 
 // mock Date class
 const dateClass = mockDateClass(Date);
